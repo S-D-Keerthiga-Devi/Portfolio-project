@@ -2,9 +2,19 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-* {
+
+@layer base {
+  html {
     scroll-behavior: smooth;
   }
+}
+
+@layer utilities {
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
 
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);

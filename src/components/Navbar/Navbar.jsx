@@ -7,6 +7,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import logo from "../../assets/logo_portfolio.png"
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,22 +26,29 @@ const Navbar = () => {
       initial={{ y: -60 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`w-full fixed z-50 px-6 md:px-20 py-6 transition-colors duration-300 shadow-md ${
-        scrolled
+      className={`w-full fixed z-50 px-6 md:px-20 py-6 transition-colors duration-300 shadow-md ${scrolled
           ? "bg-gradient-to-br from-[#0b0c1a] via-[#0c0f2a] to-[#0b0c1a]"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="flex items-center justify-between">
 
         <motion.a
           href="#Home"
-          className="text-2xl font-bold tracking-wide bg-gradient-to-r from-[#b794f4] to-[#8f5aff] bg-clip-text text-transparent"
+          className="inline-flex items-center justify-center h-10 w-auto overflow-visible"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          Portfolio
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-17 w-auto scale-150" // visually bigger
+          />
         </motion.a>
+
+
+
+
 
         <div className="hidden md:flex items-center gap-8">
           <NavigationMenu>

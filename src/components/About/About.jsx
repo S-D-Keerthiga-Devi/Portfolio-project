@@ -27,7 +27,7 @@ const timeline = [
 const About = () => {
   return (
     <section id="About">
-      <div className="w-full min-h-screen bg-gradient-to-br from-[#0b0c1a] via-[#140f26] to-[#0b0c1a] px-6 md:px-20 py-16 md:py-24 relative">
+      <div className="w-full min-h-screen bg-gradient-to-br from-[#0b0c1a] via-[#0c0f2a] to-[#0b0c1a] px-6 md:px-20 py-16 md:py-24 relative">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500 text-transparent bg-clip-text">
           About Me
         </h2>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import Blog from "../../assets/AIBlog.jpg";
 import Drl from "../../assets/DRLMOA.jpg";
-import House from "../../assets/HousePrice.jpg";
+import House from "../../assets/Houseprice.jpg";
 import JobdexImg from "../../assets/Jobbdex.jpg";
 
 const containerVariants = {

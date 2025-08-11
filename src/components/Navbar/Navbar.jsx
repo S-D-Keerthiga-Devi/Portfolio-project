@@ -1,53 +1,94 @@
-import { RiCloseLine, RiMenu2Line } from '@remixicon/react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { RiCloseLine, RiMenu2Line } from "@remixicon/react";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+  const navLinks = ["About", "Experience", "Projects", "Contact"];
 
-    const handleLinkClick = () => {
-        setMenuOpen(false);
-    };
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    return (
-        <nav className="w-full bg-gradient-to-br from-[#0b0c1a] via-[#0c0f2a] to-[#0b0c1a] text-white px-6 md:px-20 py-6 fixed z-50 shadow-md">
-            <div className="flex items-center justify-between">
+  return (
+    <motion.nav
+      initial={{ y: -60 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`w-full fixed z-50 px-6 md:px-20 py-6 transition-colors duration-300 shadow-md ${
+        scrolled
+          ? "bg-gradient-to-br from-[#0b0c1a] via-[#0c0f2a] to-[#0b0c1a]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between">
 
-                <a href="#Home" className="text-2xl font-bold tracking-wide text-[#b794f4]" onClick={handleLinkClick}>
-                    Portfolio
+        <motion.a
+          href="#Home"
+          className="text-2xl font-bold tracking-wide bg-gradient-to-r from-[#b794f4] to-[#8f5aff] bg-clip-text text-transparent"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          Portfolio
+        </motion.a>
+
+        <div className="hidden md:flex items-center gap-8">
+          <NavigationMenu>
+            <NavigationMenuList className="gap-6">
+              {navLinks.map((item) => (
+                <NavigationMenuItem key={item}>
+                  <NavigationMenuLink
+                    href={`#${item}`}
+                    className="text-[#e5d4ff] hover:text-[#b794f4] transition-colors"
+                  >
+                    {item}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+
+        <div className="md:hidden">
+          {menuOpen ? (
+            <RiCloseLine size={28} className="cursor-pointer text-[#e5d4ff]" onClick={() => setMenuOpen(false)} />
+          ) : (
+            <RiMenu2Line size={28} className="cursor-pointer text-[#e5d4ff]" onClick={() => setMenuOpen(true)} />
+          )}
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.ul
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden mt-4 bg-[#12132e] rounded-xl p-6 space-y-4 font-medium text-md"
+          >
+            {navLinks.map((item) => (
+              <li key={item} className="hover:text-[#b794f4] transition">
+                <a href={`#${item}`} onClick={() => setMenuOpen(false)} className="text-[#e5d4ff]">
+                  {item}
                 </a>
-
-                <ul className="hidden md:flex gap-10 font-medium text-md">
-                    {['About', 'Experience', 'Projects', 'Contact'].map((item) => (
-                        <li key={item} className="hover:text-[#b794f4] transition">
-                            <a href={`#${item}`} onClick={handleLinkClick}>{item}</a>
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="md:hidden">
-                    {menuOpen ? (
-                        <RiCloseLine size={28} className="cursor-pointer" onClick={toggleMenu} />
-                    ) : (
-                        <RiMenu2Line size={28} className="cursor-pointer" onClick={toggleMenu} />
-                    )}
-                </div>
-            </div>
-
-            {menuOpen && (
-                <ul className="md:hidden mt-4 bg-[#12132e] rounded-xl p-6 space-y-4 font-medium text-md transition-all duration-300">
-                    {['About', 'Experience', 'Projects', 'Contact'].map((item) => (
-                        <li key={item} className="hover:text-[#b794f4] transition">
-                            <a href={`#${item}`} onClick={handleLinkClick}>{item}</a>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </nav>
-    );
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.nav>
+  );
 };
 
 export default Navbar;

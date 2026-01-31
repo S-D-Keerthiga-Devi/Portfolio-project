@@ -28,7 +28,7 @@ const skillsData = {
     { icon: <SiTailwindcss />, color: "#38B2AC", name: "Tailwind CSS" },
     { icon: <SiPython />, color: "#3776AB", name: "Python" },
     { icon: <BsStars />, color: "#5E5ADB", name: "Gemini API" },
-    { icon: <SiExpress />, color: "#3b3b3b", name: "Express.js" }, 
+    { icon: <SiExpress />, color: "#3b3b3b", name: "Express.js" },
     { icon: <SiMongodb />, color: "#47A248", name: "MongoDB" },
   ],
   Research: [
@@ -45,24 +45,33 @@ const experienceData = {
   "Work Experience": [
     {
       icon: <FaLaptopCode size={40} />,
-      title: "React.JS Developer, TEN",
-      date: "Aug 2025 - Present",
+      title: "Full Stack Developer Intern, Codec Technologies India – Remote, India",
+      date: "Aug 2025 – Present",
       bullets: [
-        "Used React.js to build and develop web projects.",
-        "Building responsive and user-friendly interfaces.",
-        "Styled components using CSS and Tailwind CSS for clean layouts.",
+        "Built scalable MERN stack applications with RESTful APIs, authentication, and modular architecture.",
+        "Improved application performance by 25% through backend query optimization and efficient React rendering.",
+        "Collaborated in Agile teams using Git for feature development and bug fixes.",
+      ],
+    },
+    {
+      icon: <FaReact size={40} />,
+      title: "React Developer Intern, The Entrepreneurship Network – Remote, India",
+      date: "Aug 2025 – Nov 2025",
+      bullets: [
+        "Developed 5+ responsive React.js applications using Tailwind CSS and reusable components.",
+        "Built “CloudNest,” a secure cloud storage platform, and an online course system supporting 200+ users.",
+        "Reduced page load time by 30% via optimized state management and memoization.",
       ],
     },
   ],
   "Open Source": [
     {
       icon: <BsStars size={40} />,
-      title: "GSSOC'25 Contributor",
-      date: "Jul 2025 - Present",
+      title: "Open Source Contributor, GirlScript Summer of Code 2025 – Remote, India",
+      date: "Jul 2025 – Nov 2025",
       bullets: [
-        "Contributing to open-source projects under GSSoC.",
-        "Focused on front-end tasks using React and Tailwind.",
-        "Explored backend integration using Python and Flask.",
+        "Contributed features, bug fixes, and documentation to open-source projects using MERN, Python, and Flask.",
+        "Collaborated via GitHub pull requests and issues; received official recognition for active contributions.",
       ],
     },
   ],
@@ -104,9 +113,9 @@ const Experience = () => {
       <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v)} className="w-full max-w-5xl mx-auto">
 
         <div className="mb-6">
-        <TabsList
-  className="grid grid-cols-3 sm:flex sm:justify-center sm:items-center gap-2 sm:gap-4 mb-2 bg-[#161726] rounded-full p-1 z-10 mx-auto"
->
+          <TabsList
+            className="grid grid-cols-3 sm:flex sm:justify-center sm:items-center gap-2 sm:gap-4 mb-2 bg-[#161726] rounded-full p-1 z-10 mx-auto"
+          >
 
             {tabs.map((tab) => (
               <TabsTrigger

@@ -5,6 +5,9 @@ import Blog from "../../assets/AIBlog.jpg";
 import Drl from "../../assets/DRLMOA.jpg";
 import House from "../../assets/Houseprice.jpg";
 import JobdexImg from "../../assets/Jobbdex.jpg";
+import Clipsify from "../../assets/Clipsify.jpeg";
+import Learnify from "../../assets/Learnify.jpeg";
+import RootsAndWings from "../../assets/RootsAndWings.jpeg";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -39,6 +42,33 @@ const Projects = () => {
         animate="visible"
         className="grid gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 place-items-center"
       >
+        <ProjectCard
+          title="Clipsify - Your Media Platform"
+          main="A modern, full-stack media management platform built with Next.js, featuring image and video uploads, user authentication, and a beautiful dashboard interface."
+          details="Built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, NextAuth.js, MongoDB, and ImageKit. Features secure authentication, media management, and modern glassmorphism UI."
+          demo="https://clipsify-keerthiga.vercel.app/"
+          source="https://github.com/S-D-Keerthiga-Devi/Clipsify"
+          image={Clipsify}
+        />
+
+        <ProjectCard
+          title="Learnify - Online Course Platform"
+          main="A modern, full-stack online learning platform built with the MERN stack, featuring user authentication, course management, enrollment tracking, and progress monitoring."
+          details="Built with MERN stack (MongoDB, Express, React, Node.js), TailwindCSS, Clerk Authentication, and Material-UI. Features course discovery, enrollment, and progress tracking."
+          demo="https://learnify-one-silk.vercel.app"
+          source="https://github.com/S-D-Keerthiga-Devi/Learnify"
+          image={Learnify}
+        />
+
+        <ProjectCard
+          title="RootsAndWings 🌿🕊️"
+          main="Bridging the gap between environmental sustainability and social welfare through technology. A full-stack 'Smart Adoption' platform connecting donors with orphanages."
+          details="Built with React (Vite), TailwindCSS, Node.js, Express, MongoDB, and Clerk. Features smart adoption system, digital twin technology, and interactive garden dashboard."
+          demo="https://roots-and-wings-lilac.vercel.app"
+          source="https://github.com/S-D-Keerthiga-Devi/RootsAndWings"
+          image={RootsAndWings}
+        />
+
         <ProjectCard
           title="AI-Powered Blog Generator"
           main="Built and deployed a MERN stack blog platform using Gemini API for AI-generated content and ImageKit for optimized image handling."

@@ -3,7 +3,7 @@ import profile from '../../assets/profile2.jpeg';
 import TextChanger from './TextChanger';
 import MagneticButton from './MagneticButton';
 import { motion } from 'framer-motion';
-import { Button } from "@/components/ui/button"; 
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
   return (
@@ -25,8 +25,8 @@ const Home = () => {
         </h1>
 
         <p className="mt-5 text-base md:text-xl text-gray-300 leading-relaxed max-w-xl mx-auto md:mx-0">
-          Passionate full-stack developer and AI/ML enthusiast, skilled in building 
-          <span className="text-white font-medium"> MERN stack applications</span> and solving 
+          Passionate full-stack developer and AI/ML enthusiast, skilled in building
+          <span className="text-white font-medium"> MERN stack applications</span> and solving
           real-world problems through code.
         </p>
 
@@ -45,7 +45,7 @@ const Home = () => {
               className="bg-gradient-to-r from-[#3a0ca3] to-[#7209b7] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:opacity-90"
               asChild
             >
-              <a href="/Keerthiga_resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/Keerthiga_resume.pdf" download="Keerthiga_CV.pdf" title="Keerthiga CV">
                 Resume
               </a>
             </Button>
